@@ -2,24 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Игровой сайт</title>
+    <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <header>
-        {% block pagename %}
-        {% endblock %}
+        {% block pagename %}{% endblock %}
     </header>
     <nav>
         {% block menu %}
-        <p><a href="http://127.0.0.1:8000/platform">Главная</a></p>
-        <p><a href="http://127.0.0.1:8000/platform/games/">Магазин</a></p>
-        <p><a href="http://127.0.0.1:8000/platform/cart/">Корзина</a></p>
+            <h3>
+                <p><a href="/platform">{{ menu_choice.main }}</a></p>
+                <p><a href="/platform/games">{{ menu_choice.shop }}</a></p>
+                <p><a href="/platform/cart">{{ menu_choice.cart }}</a></p>
+            </h3>
         {% endblock %}
-        </nav>
+    </nav>
     <main>
-        {% block main %}
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
-</nav>
 </body>
 </html>
